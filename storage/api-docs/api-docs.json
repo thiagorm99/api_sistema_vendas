@@ -1,0 +1,776 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Gestão de Vendas",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Lista clientes",
+                "operationId": "de55d50d1b708d9e5c63ee3f8fe8f54a",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Cria um cliente",
+                "operationId": "4ac6cdfa8d6c188fa2cb4f3263d4318a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Jonathan Bayer"
+                                    },
+                                    "cpf_cnpj": {
+                                        "type": "string",
+                                        "example": "30455078447"
+                                    },
+                                    "telefone": {
+                                        "type": "string",
+                                        "example": "(575) 535-4495"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "thiago@example.com"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "539 Senger Port"
+                                    },
+                                    "cidade": {
+                                        "type": "string",
+                                        "example": "Port Edytheburgh"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "IN"
+                                    },
+                                    "cep": {
+                                        "type": "string",
+                                        "example": "79231"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Criado"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/clientes/{id}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Mostra um cliente",
+                "operationId": "0d3826d79390929601421b5810b61231",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    },
+                    "404": {
+                        "description": "Não encontrado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Atualiza um cliente",
+                "operationId": "74956b09f3ea120b5dd531c73776ca11",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Jonathan Bayer"
+                                    },
+                                    "cpf_cnpj": {
+                                        "type": "string",
+                                        "example": "30455078447"
+                                    },
+                                    "telefone": {
+                                        "type": "string",
+                                        "example": "(575) 535-4495"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "thiago@example.com"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "539 Senger Port"
+                                    },
+                                    "cidade": {
+                                        "type": "string",
+                                        "example": "Port Edytheburgh"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "IN"
+                                    },
+                                    "cep": {
+                                        "type": "string",
+                                        "example": "79231"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Atualizado"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Exclui um cliente",
+                "operationId": "d15e304c609752c9f409ab81072fb52e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Excluído"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/financeiro/lancamentos": {
+            "get": {
+                "tags": [
+                    "Financeiro"
+                ],
+                "summary": "Lista lançamentos financeiros",
+                "operationId": "a75a7e05447804684ee6b8048fccad74",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filtrar por status: aberto, pago ou cancelado",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "aberto",
+                                "pago",
+                                "cancelado"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de lançamentos"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/financeiro/{id}/pagar": {
+            "put": {
+                "tags": [
+                    "Financeiro"
+                ],
+                "summary": "Marca um lançamento como pago",
+                "operationId": "e936ea7e16a5458c6c8e0d337ee544b4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do lançamento",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lançamento pago com sucesso"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    },
+                    "404": {
+                        "description": "Lançamento não encontrado"
+                    },
+                    "500": {
+                        "description": "Erro ao processar pagamento"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Autentica um usuário e retorna um token JWT",
+                "operationId": "c5e838284c7f343f0e5e5fd589161c96",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "cathrine82@example.org"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Autenticado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Credenciais inválidas"
+                    }
+                }
+            }
+        },
+        "/api/produtos": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Lista produtos",
+                "operationId": "cab8aec265fc5e5ab4a1d09399ead918",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Cria um produto",
+                "operationId": "848c58aee26092da8f35ffed07a79969",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "explicabo excepturi"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Dolorum ullam qui ratione in porro hic."
+                                    },
+                                    "codigo": {
+                                        "type": "string",
+                                        "example": "PROD-12358"
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": "4358.39"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Criado"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/produtos/{id}": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Mostra um produto",
+                "operationId": "298e77ccdf34792d1e380c79685ec28c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    },
+                    "404": {
+                        "description": "Não encontrado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Atualiza um produto",
+                "operationId": "dabb26799e32a04fdb911e59080a6696",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "explicabo excepturi"
+                                    },
+                                    "codigo": {
+                                        "type": "string",
+                                        "example": "PROD-12358"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Dolorum ullam qui ratione in porro hic."
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": "4358.39"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Atualizado"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Exclui um produto",
+                "operationId": "32c920c8c4df5eb965b1bd0a63c021fe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Excluído"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vendas": {
+            "get": {
+                "tags": [
+                    "Vendas"
+                ],
+                "summary": "Lista vendas",
+                "operationId": "140f832df05ce79d842cf2df624fefa0",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Vendas"
+                ],
+                "summary": "Cria uma venda",
+                "operationId": "5d5dcc02258b51ed03fad16c2c5b14ba",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "cliente_id",
+                                    "forma_pagamento",
+                                    "itens"
+                                ],
+                                "properties": {
+                                    "cliente_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "forma_pagamento": {
+                                        "type": "string",
+                                        "example": "cartao"
+                                    },
+                                    "entrada": {
+                                        "type": "number",
+                                        "example": 1000
+                                    },
+                                    "parcelamento": {
+                                        "type": "string",
+                                        "example": "2,30"
+                                    },
+                                    "itens": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "produto_id": {
+                                                    "type": "integer",
+                                                    "example": 15
+                                                },
+                                                "quantidade": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "example": {
+                                "cliente_id": 1,
+                                "forma_pagamento": "cartao",
+                                "parcelamento": "2,30",
+                                "entrada": 1000,
+                                "itens": [
+                                    {
+                                        "produto_id": 2,
+                                        "quantidade": 2
+                                    },
+                                    {
+                                        "produto_id": 5,
+                                        "quantidade": 1
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Venda criada com sucesso"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    },
+                    "500": {
+                        "description": "Erro ao registrar venda"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vendas/{id}": {
+            "get": {
+                "tags": [
+                    "Vendas"
+                ],
+                "summary": "Mostra uma venda",
+                "operationId": "bc8175996429a7fb4979ba08e8d31b19",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    },
+                    "404": {
+                        "description": "Não encontrado"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vendas/{id}/cancelar": {
+            "put": {
+                "tags": [
+                    "Vendas"
+                ],
+                "summary": "Cancela uma venda",
+                "operationId": "bba07d3dbdf6eb7d95fcd8a32e4aa6cb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Venda cancelada com sucesso"
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    },
+                    "404": {
+                        "description": "Venda não encontrada"
+                    },
+                    "500": {
+                        "description": "Erro ao cancelar venda"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Endpoints de autenticação"
+        },
+        {
+            "name": "Clientes",
+            "description": "Gerenciamento de clientes"
+        },
+        {
+            "name": "Produtos",
+            "description": "Gerenciamento de produtos"
+        },
+        {
+            "name": "Vendas",
+            "description": "Processo de vendas"
+        },
+        {
+            "name": "Financeiro",
+            "description": "Controle financeiro"
+        }
+    ]
+}
