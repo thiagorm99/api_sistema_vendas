@@ -27,8 +27,6 @@ A API permite:
 
 ✅ Padronização de respostas da API
 
-✅ Utilização de apiResource
-
 ✅ Padrão RESTful aplicado
 
 ✅ Uso do API Resource do Laravel
